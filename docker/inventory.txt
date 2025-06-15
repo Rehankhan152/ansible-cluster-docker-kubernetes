@@ -1,0 +1,8 @@
+[nodes]
+10.244.0.26
+10.244.0.27
+
+[nodes:vars]
+ansible_user=ansible
+ansible_password=ansible
+ansible_connection=ssh
