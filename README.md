@@ -17,10 +17,6 @@ ansible-cluster/
 │ ├── node2.yaml
 ├── README.md
 
-yaml
-Copy
-Edit
-
 ---
 
 ## 🚀 Technologies Used
@@ -37,43 +33,26 @@ Edit
 ## 📦 Setup in Docker
 
 1. Build the custom image:
-   ```bash
    docker build -t ansible-node .
 Run containers manually:
-
-bash
-Copy
-Edit
 docker run -itd --name master ansible-node
 docker run -itd --name node1 ansible-node
 docker run -itd --name node2 ansible-node
 Set up SSH keys between master and nodes, then run:
 
-bash
-Copy
-Edit
 ansible-playbook -i inventory test.yml
 ☸️ Setup in Kubernetes (Minikube)
 Start Minikube:
 
-bash
-Copy
-Edit
 minikube start
 Apply the pod YAMLs:
 
-bash
-Copy
-Edit
 kubectl apply -f ansible-master.yaml
 kubectl apply -f node1.yaml
 kubectl apply -f node2.yaml
 SSH from the master to each node using Pod IPs, copy keys, then run the playbook.
 
 📝 Sample Playbook
-yaml
-Copy
-Edit
 - name: Run test playbook on nodes
   hosts: nodes
   become: yes
